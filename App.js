@@ -1,34 +1,31 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+// React Element
+const JSXheading = <h1 tabIndex="1">Using JSX 🚀</h1>;
+
 /**
- * <div id="parent">
- * <div id="child">
- * <h1>I'm h1 tag</h1>
- * <h2>I'm h2 tag </h2>
- * </div>
- * * <div id="child2">
- * <h1>I'm h1 tag</h1>
- * <h2>I'm h2 tag </h2>
- * </div>
- * </div> 
+ * REACT FUNCTIONAL COMPONENT
+ * Title component
  */
-const parent = React.createElement(
-    "div" ,{id:"parent"},
-    [React.createElement(
-                            "div",{id:"child"},
-                            [
-                                React.createElement("h1",{},"I'm h1 tag"),
-                                React.createElement("h2",{},"I'm h2 tag")
-                            ]
-                        ),
-                        React.createElement(
-                            "div",{id:"child2"},
-                            [
-                                React.createElement("h1",{},"I'm h1 tag"),
-                                React.createElement("h2",{},"I'm h2 tag")
-                            ]
-                        )                
-                    ]
-    
-    )
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(parent); 
-console.log(parent);
+const Title = () => {
+  return <h1 className="title">Namaste React using JSX 🚀.</h1>;
+};
+/**
+ * Heading Component
+ *       &
+ * Component composition
+ */
+
+const Heading = () => {
+  return (
+    <div id="container">
+      <Title />
+      <h2 className="heading">Namaste React Functional Component</h2>
+    </div>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// console.log(JSXheading);
+root.render(<Heading />);
