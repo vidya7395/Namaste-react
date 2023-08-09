@@ -10,6 +10,7 @@
   "files.autoSave": "onFocusChange", // optional but recommended
   "vs-code-prettier-eslint.prettierLast": "true",
   "cSpell.words": [
+    "cloudinary",
     "Namaste",
     "Vidya"
   ] // set as "true" to run 'prettier' last not first
