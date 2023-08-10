@@ -4,6 +4,7 @@ import RestaurantCard from "./restaurantCard";
 import { useState } from "react";
 const ResContainer = () => {
   //Local State variable - super powerful variable
+  console.log(useState());
   let [listOfRestaurant, setListOfRestaurant] = useState(resList);
   //   listOfRestaurant = resList;
   return (
