@@ -1,12 +1,27 @@
 import React from "react";
-import resList from "../utils/mockData";
 import RestaurantCard from "./restaurantCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const ResContainer = () => {
   //Local State variable - super powerful variable
-  console.log(useState());
-  let [listOfRestaurant, setListOfRestaurant] = useState(resList);
+  let [listOfRestaurant, setListOfRestaurant] = useState([]);
   //   listOfRestaurant = resList;
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.617572&lng=72.92751&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    // optional chaining
+    setListOfRestaurant(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+  if (listOfRestaurant?.length === 0) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <React.Fragment>
       <button
@@ -22,6 +37,17 @@ const ResContainer = () => {
       >
         Top Rated Restaurant
       </button>
+      <input
+        type="text"
+        className="search"
+        onChange={(event) => {
+          const searchList = listOfRestaurant.filter((res) => {
+            console.log(res.info.name);
+            return res.info.name.includes(event.target.value);
+          });
+          setListOfRestaurant(searchList);
+        }}
+      />
       <div className="res-container">
         {listOfRestaurant.map((restaurant) => (
           <RestaurantCard
