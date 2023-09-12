@@ -5,7 +5,7 @@ const ErrorPage = () => {
   return (
     <div>
       <h1>Oops!!!</h1>
-      <p>{err.error.message}</p>
+      <p>{err}</p>
     </div>
   );
 };

@@ -3,3 +3,11 @@ export const FOOD_IMG =
 
 export const LOGO_IMG =
   "https://helloartsy.com/wp-content/uploads/kids/food/how-to-draw-a-pizza/how-to-draw-a-pizza-step-6.jpg";
+
+export const RESTAURANT_MENU =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.617572&lng=72.92751&restaurantId=";
+
+export const USER_INFO_API = "https://api.github.com/users/vidya7395";
+
+export const LIST_OF_RESTAURANT =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.617572&lng=72.92751&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";

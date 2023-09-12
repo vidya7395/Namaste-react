@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
-import ResContainer from "./src/components/RestaurantContainer";
 import Body from "./src/components/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ContactUs from "./src/components/ContactUs";
 import AboutUs from "./src/components/AboutUs";
 import ErrorPage from "./src/components/ErrorPage";
+import RestaurantMenu from "./src/components/RestaurantMenu";
 const AppLayout = () => {
   return (
     <div className="container">
@@ -21,7 +21,7 @@ const appRouting = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <ErrorPage />,
+
     children: [
       {
         path: "/",
@@ -35,7 +35,12 @@ const appRouting = createBrowserRouter([
         path: "/contact-us",
         element: <ContactUs />,
       },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
+      },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

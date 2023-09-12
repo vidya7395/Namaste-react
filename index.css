@@ -98,3 +98,14 @@ ul{
     min-width: 150px;
     cursor: pointer;
 }
+.card{
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    padding: 30px;
+    width: 300px;
+    border-radius: 4px;
+    margin: 10px;
+}
+.profile{
+    height: 100px;
+}
