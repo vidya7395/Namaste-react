@@ -26,5 +26,37 @@
 # React Hook
 - (Normal JS Utility functions)
 - Two very important hooks
-  - UseState() - Super powerful State Variables in react
+  - UseState()  - Super powerful State Variables in react
   - useEffect() - 
+
+
+# CODE OPTIMIZING
+- Chunking
+- Code Splitting
+- Dynamic bundling
+- LAZY LOADING
+- On demand loading
+- Logical separation of bundle - independent app
+- Dynamic Import
+
+# EP -09 OPTIMIZING APP
+- Custom hooks
+- lazy loading
+
+# EP - 10 Jo dikhta hai wo bikta hai
+- Various way to style app
+  - scss and css not a preferred way
+  - recommended way - styled component
+  - other framework
+    - material UI
+    - styled components
+    - bootstrap
+    - ant design
+    - tailwind css
+## Tailwind
+- Generic css framework
+- Potscss
+  - a tool to transform css with javascript and     tailwind   css uses this
+  - parcel use postcssrc to understand taiwlind
+  - in postcssrc we define that we are using tailwind
+  - postcssrc is a way that our project understand how we are using tailwind

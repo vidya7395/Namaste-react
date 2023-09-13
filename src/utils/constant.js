@@ -2,7 +2,7 @@ export const FOOD_IMG =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 export const LOGO_IMG =
-  "https://helloartsy.com/wp-content/uploads/kids/food/how-to-draw-a-pizza/how-to-draw-a-pizza-step-6.jpg";
+  "https://logos-world.net/wp-content/uploads/2020/12/FoodieBay-Logo-2008.png";
 
 export const RESTAURANT_MENU =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.617572&lng=72.92751&restaurantId=";
