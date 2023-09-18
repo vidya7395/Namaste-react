@@ -1,2 +1,69 @@
-# Namaste-react
-All the react code and assignments 
+# Namaste React
+    All the react code and assignments 
+
+
+# Structure
+/**
+ * HeaderComponent
+ *  -Logo
+ *  -Search
+ *  -Cart
+ * RestaurantComponent
+ *  -container
+ *  -card
+ */
+
+
+# Two types of Export/Import
+- Default export/import
+- import Component from "path";
+
+
+- named export/import
+- import {Component} from "path";
+
+
+# React Hook
+- (Normal JS Utility functions)
+- Two very important hooks
+  - UseState()  - Super powerful State Variables in react
+  - useEffect() - 
+
+
+# CODE OPTIMIZING
+- Chunking
+- Code Splitting
+- Dynamic bundling
+- LAZY LOADING
+- On demand loading
+- Logical separation of bundle - independent app
+- Dynamic Import
+
+# EP -09 OPTIMIZING APP
+- Custom hooks
+- lazy loading
+
+# EP - 10 Jo dikhta hai wo bikta hai
+- Various way to style app
+  - scss and css not a preferred way
+  - recommended way - styled component
+  - other framework
+    - material UI
+    - styled components
+    - bootstrap
+    - ant design
+    - tailwind css
+## Tailwind
+- Generic css framework
+- Potscss
+  - a tool to transform css with javascript and     tailwind   css uses this
+  - parcel use postcssrc to understand tailwind
+  - in postcssrc we define that we are using tailwind
+  - postcssrc is a way that our project understand how we are using tailwind
+  - ## PROS 
+    - Just use in single file not back and forth    between files
+    - it will only include the css which is required
+    - lightweight
+    - 
+  - ## CONS
+    - Lots of css to apply makes our code look ugly,class name goes so long , so js code looks ugly
