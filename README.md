@@ -57,6 +57,13 @@
 - Generic css framework
 - Potscss
   - a tool to transform css with javascript and     tailwind   css uses this
-  - parcel use postcssrc to understand taiwlind
+  - parcel use postcssrc to understand tailwind
   - in postcssrc we define that we are using tailwind
   - postcssrc is a way that our project understand how we are using tailwind
+  - ## PROS 
+    - Just use in single file not back and forth    between files
+    - it will only include the css which is required
+    - lightweight
+    - 
+  - ## CONS
+    - Lots of css to apply makes our code look ugly,class name goes so long , so js code looks ugly

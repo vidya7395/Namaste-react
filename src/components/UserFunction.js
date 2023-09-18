@@ -8,7 +8,6 @@ const UserFunction = ({ name }) => {
   const getUserInfo = async () => {
     const userData = await fetch(USER_INFO_API);
     const json = await userData.json();
-    console.log(json);
   };
   useEffect(() => {
     getUserInfo();

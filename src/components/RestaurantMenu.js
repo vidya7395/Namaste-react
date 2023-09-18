@@ -2,6 +2,7 @@ import Shimmer from "./Shimmer";
 import { Link, useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { FOOD_IMG } from "../utils/constant";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -15,16 +16,14 @@ const RestaurantMenu = () => {
     );
   const { name, cuisines, id, areaName, cloudinaryImageId } =
     restInfo?.data?.cards[0]?.card?.card?.info;
-  const menu =
-    restInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-      ?.card.itemCards;
-  console.log(
-    "MENU",
-    menu.map((data) => data.card.info)
-  );
-
+  const categories =
+    restInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (data) =>
+        data?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto p-5">
       <Link className="cursor-pointer " to={"/"}>
         <div className="text-2xl mt-2">⬅️</div>
       </Link>
@@ -39,25 +38,14 @@ const RestaurantMenu = () => {
         <h2 className="mt-2">Cuisines</h2>
         <p className="text-gray-400">{cuisines.join(",")}</p>
         <h2 className="mt-2 text-3xl text-gray-600 mb-3">Menu</h2>
-        <ul className="grid grid-cols-3 gap-4">
-          {menu.map((data) => (
-            <li className="item">
-              <img
-                className="w-full h-[200px] object-cover rounded-md"
-                alt={data?.card?.info?.name + " Image"}
-                src={FOOD_IMG + data?.card?.info?.imageId}
-              />
-              <div>{data?.card?.info?.name}</div>
-              <div className="text-gray-500">
-                Category :{data?.card?.info?.category}
-              </div>
-              <div className="text-gray-500">
-                Price :{data?.card?.info?.price}
-              </div>
-            </li>
-          ))}
-        </ul>
       </div>
+
+      {categories.map((category) => (
+        <RestaurantCategory
+          key={category?.card?.card?.title}
+          categoryData={category?.card?.card}
+        ></RestaurantCategory>
+      ))}
     </div>
   );
 };

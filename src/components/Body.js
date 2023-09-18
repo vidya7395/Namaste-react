@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { RestaurantCardWithVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useNetworkChecker from "../utils/useNetworkChecker";
-
+const RestaurantCardWithVeg = RestaurantCardWithVegLabel(RestaurantCard);
 const Body = () => {
   const [listsOfRestaurant, setListsOfRestaurant] = useState([]);
   const [searchContent, setSearchContent] = useState([]);
@@ -40,7 +40,7 @@ const Body = () => {
     );
   }
   return (
-    <div className="max-w-5xl mx-auto my-0">
+    <div className="max-w-5xl mx-auto my-0 p-5">
       <div className="flex py-3">
         <input
           className="p-1 w-[80%] block rounded-md border border-gray-300"
@@ -86,14 +86,21 @@ const Body = () => {
       {listsOfRestaurant.length == 0 ? (
         <Shimmer />
       ) : (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid  gap-4 lg:grid-cols-4 md:grid-cols-2 ">
           {filterList.map((restaurant) => (
             <Link
               className="cursor-pointer"
               key={restaurant.info.id}
               to={"/restaurant/" + restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant}></RestaurantCard>
+              {/* If restaurant is veg add veg label */}
+              {restaurant.info?.veg ? (
+                <RestaurantCardWithVeg
+                  resData={restaurant}
+                ></RestaurantCardWithVeg>
+              ) : (
+                <RestaurantCard resData={restaurant}></RestaurantCard>
+              )}
             </Link>
           ))}
         </div>
