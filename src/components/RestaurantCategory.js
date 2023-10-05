@@ -1,10 +1,11 @@
 import { useState } from "react";
 import RestaurantCategoryList from "./RestaurantCategoryList";
 
-const RestaurantCategory = ({ categoryData }) => {
-  let [isShowItem, setIsShowItem] = useState(false);
+const RestaurantCategory = ({ categoryData, isShowItem, setShowIndex }) => {
+  // let [isShowItem, setIsShowItem] = useState(false);
   const handleClick = () => {
-    setIsShowItem(!isShowItem);
+    // setIsShowItem(!isShowItem);
+    setShowIndex();
   };
   return (
     <div>
@@ -16,16 +17,17 @@ const RestaurantCategory = ({ categoryData }) => {
           {categoryData.title} ({categoryData.itemCards.length})
         </h3>
         {isShowItem ? (
-          <span className="me-2">⬆️</span>
+          <span className="me-2">▼ </span>
         ) : (
-          <span className="me-2">⬇️</span>
+          <span className="me-2">▲</span>
         )}
       </div>
+      {/* Restaurant catagories */}
       {isShowItem && (
         <RestaurantCategoryList categoryListData={categoryData.itemCards} />
       )}
 
-      <div className="p-2 bg-blue-50"></div>
+      <div className="p-2 bg-blue-50 my-1"></div>
     </div>
   );
 };

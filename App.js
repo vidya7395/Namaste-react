@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -7,16 +7,33 @@ import ContactUs from "./src/components/ContactUs";
 import AboutUs from "./src/components/AboutUs";
 import ErrorPage from "./src/components/ErrorPage";
 import RestaurantMenu from "./src/components/RestaurantMenu";
+import { UserContext } from "./src/utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/Store/appStore";
+import Cart from "./src/components/Cart";
 // import Grocery from "./src/components/Grocery";
 
 const Grocery = lazy(() => {
   return import("./src/components/Grocery.js");
 });
 const AppLayout = () => {
+  // authentication code written
+  const [userName, setUsername] = useState([]);
+  useEffect(() => {
+    // make API call and authenticate and get the user info
+    const data = {
+      name: "Vidya Krishnani",
+    };
+    setUsername(data.name);
+  }, []);
   return (
     <div>
-      <Header />
-      <Outlet></Outlet>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ userLoggedIn: userName, setUsername }}>
+          <Header />
+          <Outlet></Outlet>
+        </UserContext.Provider>
+      </Provider>
     </div>
   );
 };
@@ -46,6 +63,10 @@ const appRouting = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurant/:resId",

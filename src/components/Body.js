@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard, { RestaurantCardWithVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useNetworkChecker from "../utils/useNetworkChecker";
+import { UserContext } from "../utils/userContext";
 const RestaurantCardWithVeg = RestaurantCardWithVegLabel(RestaurantCard);
 const Body = () => {
   const [listsOfRestaurant, setListsOfRestaurant] = useState([]);
   const [searchContent, setSearchContent] = useState([]);
   const [filterList, setFilterList] = useState([]);
+
   useEffect(() => {
     fetchData();
   }, []);
   const networkStatus = useNetworkChecker();
+  const { userLoggedIn, setUsername } = useContext(UserContext);
 
   const fetchData = async () => {
     try {
@@ -45,6 +48,14 @@ const Body = () => {
         <input
           className="p-1 w-[80%] block rounded-md border border-gray-300"
           value={searchContent}
+          // onKeyDown={() => {
+          //   const filterSearchList = listsOfRestaurant.filter((value) => {
+          //     return value.info.name
+          //       .toLowerCase()
+          //       .includes(searchContent.toLowerCase());
+          //   });
+          //   setFilterList(filterSearchList);
+          // }}
           onChange={(e) => {
             setSearchContent(e.target.value);
           }}
@@ -71,6 +82,11 @@ const Body = () => {
           Show All
         </button>
       </div>
+      <input
+        className="border p-3 rounded w-12/12 my-4"
+        value={userLoggedIn}
+        onChange={(e) => setUsername(e.target.value)}
+      />
       <button
         className="text-gray-700 font-medium my-2 px-3 py-1 rounded-md border border-gray-300 min-w-fit cursor-pointer ms-1"
         onClick={() => {

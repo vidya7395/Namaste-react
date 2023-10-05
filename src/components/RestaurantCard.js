@@ -1,7 +1,12 @@
+// import { useContext } from "react";
 import { FOOD_IMG } from "../utils/constant";
+// import { UserContext } from "../utils/userContext";
+
 // Restaurant Card
 const RestaurantCard = (props) => {
+  // console.log("Restaurant card rendering");
   const { resData } = props;
+  // const { userLoggedIn } = useContext(UserContext);
   const { cloudinaryImageId, name, avgRating, cuisines, areaName } =
     resData?.info;
   return (
@@ -26,6 +31,7 @@ const RestaurantCard = (props) => {
 
         <p className="mt-1 text-gray-500">{cuisines.join(", ")}</p>
         <p className="text-gray-400 mt-1">📍{areaName}</p>
+        {/* <span className="font-bold">User: {userLoggedIn}</span> */}
       </div>
     </div>
   );
