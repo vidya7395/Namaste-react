@@ -67,3 +67,27 @@
     - 
   - ## CONS
     - Lots of css to apply makes our code look ugly,class name goes so long , so js code looks ugly
+
+
+## EP - 11 Data is the new oil
+- ## Control and uncontrolled component 
+      - Any component which is controlled by parent is called controlled component and if the component has its own state then it is call un controlled component
+- ## Lifting state up
+
+## EP - 12 Redux Toolkit 
+ - Install @reduxjs/toolkit and react-redux
+ - Build  our store
+ - Connect our store to our app
+ - Slice (cartSlice)
+ - dispatch(action)
+ - read data using selector
+ - ### History of redux(older redux)
+   - Earlier- vanilla redux, => there was a big problem with state,it gives warning, don't mutate state
+  we cannot modify state
+  - How then we modify it, we create the copy of state and then modify the state
+  
+  - ### Redux toolkit (newer version)
+    - WE HAVE To mutate the state and redux uses IMMER library to work with immutable state
+
+
+    

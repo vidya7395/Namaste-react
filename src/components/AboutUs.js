@@ -1,25 +1,32 @@
 import UserFunction from "./UserFunction";
 import UserClass from "./UserClass";
 import { Component } from "react";
+import { UserContext } from "../utils/userContext";
 class AboutUs extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    console.log("Component did mount");
+    // console.log("Component did mount");
   }
 
   componentDidUpdate() {
-    console.log("Component did update");
+    // console.log("Component did update");
   }
 
   componentWillUnmount() {
-    console.log("Component will unmount");
+    // console.log("Component will unmount");
   }
   render() {
-    console.log("Render HTML");
+    // console.log("Render HTML");
     return (
       <div>
+        <div className="font-bold text-xl">
+          LoggedIn USer:
+          <UserContext.Consumer>
+            {({ userLoggedIn }) => userLoggedIn}
+          </UserContext.Consumer>
+        </div>
         <h1>This is About us page</h1>
         <UserFunction name={"Vidya Satpute(function)"} />
         <UserClass name={"first child"} location={"Valsad"} />

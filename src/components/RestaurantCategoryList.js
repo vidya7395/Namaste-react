@@ -1,5 +1,13 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/Store/cartSlice";
 import { FOOD_IMG } from "../utils/constant";
 const RestaurantCategoryList = ({ categoryListData }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item));
+  };
+
   return (
     <>
       {categoryListData.map((data) => (
@@ -45,7 +53,10 @@ const RestaurantCategoryList = ({ categoryListData }) => {
                 className="rounded"
               />
             )}
-            <button className="bg-white rounded absolute bottom-[-10px] shadow border p-2 text-green-600 text-xs font-semibold">
+            <button
+              className="bg-white rounded absolute bottom-[-10px] shadow border p-2 text-green-600 text-xs font-semibold"
+              onClick={() => handleAddItem(data)}
+            >
               ADD
             </button>
           </div>
