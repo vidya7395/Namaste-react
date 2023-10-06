@@ -81,3 +81,13 @@
  - Slice (cartSlice)
  - dispatch(action)
  - read data using selector
+ - ### History of redux(older redux)
+   - Earlier- vanilla redux, => there was a big problem with state,it gives warning, don't mutate state
+  we cannot modify state
+  - How then we modify it, we create the copy of state and then modify the state
+  
+  - ### Redux toolkit (newer version)
+    - WE HAVE To mutate the state and redux uses IMMER library to work with immutable state
+
+
+    

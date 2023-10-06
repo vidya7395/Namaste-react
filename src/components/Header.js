@@ -34,6 +34,9 @@ export const Header = () => {
         </Link>
       </div>
       <div className="flex align-middle">
+        <Link to="/" className="me-3">
+          Home
+        </Link>
         <Link to="about-us">About us</Link>
         <ul className="decoration-none mx-2">
           <Link to="cart">
