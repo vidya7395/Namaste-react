@@ -90,4 +90,26 @@
     - WE HAVE To mutate the state and redux uses IMMER library to work with immutable state
 
 
-    
+## TYPES of testing (devloper)    
+  - Unit Testing - (Testing react component in isolation i.e one unit of a code or one part of code not the whole application)
+  - Integration Testing - (There are multiple component and they are communicating or connected with each other is called Integration testing)
+  - End to End Testing - e2e Testing (Testing all the flows, it start from user landing on the page still it leaves the page)
+    (Different tools used like selenium)
+- What libraries we need to do testing ?
+  - React Testing library
+    - Set-up app to write test cases
+    - Jest is standard way to write test cases in react
+    - React testing libraray uses Jest  and Jest uses babel
+
+
+# Setting up Testing in our app
+- Install react testing library
+- Install jest
+- Install Babel dependecies    
+- Configure Babel
+- Configure Parcel config file to disable default babel transpilation
+- Jest Configuration (npx jest --init)
+- Install jsdom library( https://testing-library.com/docs/react-testing-library/setup#jest-28)
+
+# What is JS dom ?
+- This test cases does not run on server(browser), they need some enviroment , so it will run in js dom.
